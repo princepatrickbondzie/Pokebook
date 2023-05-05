@@ -9,6 +9,7 @@ import Loading from "../components/elements/Loading";
 
 export default function App() {
   const { isLoading } = useAppContext();
+
   return (
     <div className="h-screen flex bg-[#F1F1F1] justify-center items-center w-full">
       {isLoading ? (

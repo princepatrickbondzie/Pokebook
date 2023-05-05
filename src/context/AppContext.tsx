@@ -93,7 +93,10 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
     const localData = localStorage.getItem("pokemons");
     if (localData) {
       setPokemons(JSON.parse(localData));
-      setIsLoading(false);
+      const timerId = setTimeout(() => {
+        setIsLoading(false);
+      }, 5000);
+      return () => clearTimeout(timerId);
     } else {
       fetchPokemonList();
     }
@@ -102,7 +105,10 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
   useEffect(() => {
     if (pokemonList.length > 0) {
       fetchPokemonData(pokemonList);
-      setIsLoading(false);
+      const timerId = setTimeout(() => {
+        setIsLoading(false);
+      }, 5000);
+      return () => clearTimeout(timerId);
     }
   }, [pokemonList]);
 
