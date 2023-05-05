@@ -51,8 +51,6 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
       setPokemonList(data.results.map((p: any) => p.url));
     } catch (error: any) {
       setError(error);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -104,6 +102,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
   useEffect(() => {
     if (pokemonList.length > 0) {
       fetchPokemonData(pokemonList);
+      setIsLoading(false);
     }
   }, [pokemonList]);
 
