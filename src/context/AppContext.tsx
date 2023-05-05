@@ -64,7 +64,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
           img: data.sprites.other["official-artwork"].front_default,
           types: {
             one: data.types[0].type.name,
-            two: data.types[1]?.type.name ?? null,
+            two: data.types[1].type.name ?? null,
           },
           about: {
             height: data.height,
